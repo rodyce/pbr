@@ -43,6 +43,7 @@
     "recursive-readdir": "2.1.0",
     "strip-ansi": "3.0.1",
     "style-loader": "0.13.1",
+    "tailwindcss": "^0.6.6",
     "truffle-contract": "^1.1.8",
     "truffle-hdwallet-provider": "0.0.5",
     "truffle-solidity-loader": "0.0.8",
@@ -63,13 +64,16 @@
     "openzeppelin-solidity": "1.9.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-icons": "^3.1.0",
+    "react-router-dom": "^4.3.1",
     "web3": "^1.0.0-beta.33",
     "web3-utils": "^1.0.0-beta.33"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "start-dev": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "tailwind:css": "tailwind build src/css/tailwind.src.css -c  tailwind.js -o src/css/tailwind.css",
+    "start": "npm run tailwind:css && node scripts/start.js",
+    "start-dev": "npm run tailwind:css && node scripts/start.js",
+    "build": "npm run tailwind:css && node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "prestart": "npm run build",
     "deploy-rinkeby": "truffle migrate --network infuraRinkeby"
